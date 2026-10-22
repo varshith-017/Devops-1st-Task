@@ -1,0 +1,15 @@
+
+{
+  "name": "devopsflow-cicd-demo",
+  "version": "1.0.0",
+  "description": "Node.js application for a DevOps CI/CD internship task",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
