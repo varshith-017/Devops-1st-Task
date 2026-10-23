@@ -1,19 +1,17 @@
-
 # DevOpsFlow - CI/CD Pipeline Demo
 
-A beginner-friendly Node.js project for learning automated testing,
-Docker image building, and publishing through GitHub Actions.
+A beginner-friendly Node.js project demonstrating automated testing, Docker image building, and publishing through GitHub Actions.
 
 ## Technologies
 
 - Node.js
-- HTML, CSS and JavaScript
+- HTML, CSS, and JavaScript
 - Git and GitHub
 - GitHub Actions
 - Docker
 - Docker Hub
 
-## Run locally
+## Run Locally
 
 Open CMD inside the project folder and run:
 
@@ -22,15 +20,13 @@ npm test
 node app.js
 ```
 
-On Windows, Chrome should open automatically.
-
-If it does not open, visit:
+If Chrome does not open automatically, visit:
 
 http://localhost:3000
 
-## Health check
+## Health Check
 
-Open this URL:
+Open:
 
 http://localhost:3000/api/health
 
@@ -43,42 +39,55 @@ Expected response:
 }
 ```
 
-## Build the Docker image
+## Build and Run the Docker Image
 
-Make sure Docker Desktop is running:
+Make sure Docker Desktop is running.
 
 ```bat
-docker build -t nodejs-demo-app .
-docker run --rm -p 3000:3000 nodejs-demo-app
+docker build -t devopsflow-cicd-demo .
+docker run --rm -p 3000:3000 devopsflow-cicd-demo
 ```
 
 Then visit http://localhost:3000.
 
-## GitHub Actions setup
+## GitHub Actions CI/CD Pipeline
 
-1. Create a Docker Hub repository named nodejs-demo-app.
-2. Create a Docker Hub access token.
-3. Open your GitHub repository's Settings.
-4. Go to Secrets and variables, then Actions.
-5. Add these repository secrets:
+The GitHub Actions workflow automates the following steps:
 
-   - DOCKERHUB_USERNAME
-   - DOCKERHUB_TOKEN
+1. Tests the Node.js application.
+2. Builds the Docker image.
+3. Logs in to Docker Hub using GitHub repository secrets.
+4. Pushes the image to Docker Hub.
 
-6. Push the project to the main branch.
-7. Open the Actions tab and inspect the workflow.
+### GitHub Secrets
 
-The workflow tests the application, builds a Docker image,
-and pushes the image to Docker Hub.
+The following repository secrets are configured in GitHub:
 
-Image name:
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
 
-YOUR_DOCKERHUB_USERNAME/nodejs-demo-app:latest
+Credentials are stored securely using GitHub Actions secrets and are not included in the source code.
 
-This workflow publishes a Docker image. Deploying to a live
-hosting server requires an additional deployment step.
+## Docker Hub Image
+
+**Image name:**
+
+`varshithap123/devopsflow-cicd-demo:latest`
+
+**Docker Hub repository:**
+
+https://hub.docker.com/r/varshithap123/devopsflow-cicd-demo
+
+## GitHub Repository
+
+https://github.com/varshith-017/Devops-1st-Task
+
+## Result
+
+The CI/CD pipeline successfully tests the application, builds the Docker image, and publishes it to Docker Hub.
+
+This project demonstrates CI/CD automation. Deploying the application to a live hosting server would require an additional deployment step.
 
 ## Security
 
-Never commit passwords or access tokens to your repository.
-Use GitHub Actions secrets for Docker Hub credentials.
+Never commit passwords, access tokens, or other secrets to the repository. Use GitHub Actions secrets for Docker Hub credentials.
